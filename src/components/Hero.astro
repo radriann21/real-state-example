@@ -1,0 +1,85 @@
+---
+import { Image } from "astro:assets";
+const zones = ["Caracas", "Valencia", "Margarita", "Mérida", "Lechería"];
+const types = ["Casa", "Apartamento", "Penthouse", "Terreno"];
+---
+
+<section class="relative min-h-[90vh] flex items-end">
+    <div class="absolute inset-0">
+        <Image
+            src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80"
+            alt="Casa moderna con terraza tropical"
+            class="w-full h-full object-cover"
+            fetchpriority="high"
+            width="1920"
+            height="1080"
+        />
+        <div
+            class="absolute inset-0 bg-linear-to-t from-ink/70 via-ink/20 to-transparent"
+        >
+        </div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 pb-20 w-full pt-24">
+        <h1
+            class="hero-headline font-display text-5xl md:text-7xl lg:text-8xl font-bold text-cream tracking-tight leading-[0.95] min-w-0 opacity-0 translate-y-5"
+            style="overflow-wrap: anywhere;"
+        >
+            Tu hogar, conectado<br />
+            a lo que <em class="font-normal italic">importa</em>.
+        </h1>
+
+        <p class="mt-10 text-cream/80 text-lg max-w-xl">
+            Propiedades seleccionadas en las mejores zonas de Venezuela.
+        </p>
+
+        <div
+            class="mt-10 bg-surface rounded-xl p-3 flex flex-col md:flex-row gap-3 max-w-3xl shadow-lg min-w-0"
+        >
+            <select
+                class="flex-1 bg-cream border border-ink/15 rounded-lg px-4 py-3 text-sm text-ink transition-all duration-150 hover:border-ink/30 focus-visible:border-forest focus-visible:ring-2 focus-visible:ring-forest/20 outline-none min-w-0"
+            >
+                <option value="">Zona</option>
+                {zones.map((z) => <option value={z}>{z}</option>)}
+            </select>
+
+            <select
+                class="flex-1 bg-cream border border-ink/15 rounded-lg px-4 py-3 text-sm text-ink transition-all duration-150 hover:border-ink/30 focus-visible:border-forest focus-visible:ring-2 focus-visible:ring-forest/20 outline-none min-w-0"
+            >
+                <option value="">Tipo</option>
+                {types.map((t) => <option value={t}>{t}</option>)}
+            </select>
+
+            <input
+                type="text"
+                placeholder="Presupuesto en USD"
+                class="flex-1 bg-cream border border-ink/15 rounded-lg px-4 py-3 text-sm text-ink placeholder:text-ink-muted transition-all duration-150 hover:border-ink/30 focus-visible:border-forest focus-visible:ring-2 focus-visible:ring-forest/20 outline-none min-w-0"
+            />
+
+            <button
+                type="button"
+                class="bg-forest text-cream px-6 py-3 rounded-lg text-sm font-medium transition-all duration-150 hover:bg-forest/80 hover:-translate-y-px active:translate-y-0 focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 focus-visible:ring-offset-surface cursor-pointer"
+            >
+                Buscar
+            </button>
+        </div>
+    </div>
+</section>
+
+<style>
+    .hero-headline {
+        animation: hero-enter var(--motion-slower) var(--ease-emphasized)
+            forwards;
+    }
+
+    @keyframes hero-enter {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>

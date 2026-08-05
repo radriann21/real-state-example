@@ -1,18 +1,24 @@
 ---
+import { Font } from "astro:assets";
 import "../styles/globals.css";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="icon" href="/favicon.ico" />
         <meta name="generator" content={Astro.generator} />
-        <title>Real State Example</title>
+        <meta name="description" content="Propiedades seleccionadas en las mejores zonas de Venezuela" />
+        <Font cssVariable="--font-fraunces" preload />
+        <Font cssVariable="--font-inter" />
+        <Font cssVariable="--font-body" />
+        <Font cssVariable="--font-mono" />
+        <title>TerraNativa · Inmobiliaria en Venezuela</title>
     </head>
-    <body>
+    <body class="bg-cream text-ink font-body antialiased">
         <slot />
     </body>
 </html>
