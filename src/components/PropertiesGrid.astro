@@ -1,0 +1,83 @@
+---
+import PropertyCard from './PropertyCard.astro';
+
+const properties = [
+  {
+    title: 'Casa moderna en Altamira',
+    zone: 'Caracas',
+    price: 485000,
+    area: 320,
+    rooms: 4,
+    image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80',
+  },
+  {
+    title: 'Apartamento con vista al mar',
+    zone: 'Lechería',
+    price: 295000,
+    area: 180,
+    rooms: 3,
+    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80',
+  },
+  {
+    title: 'Penthouse en Sambil',
+    zone: 'Caracas',
+    price: 720000,
+    area: 260,
+    rooms: 3,
+    image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80',
+  },
+  {
+    title: 'Casa colonial restaurada',
+    zone: 'Valencia',
+    price: 380000,
+    area: 410,
+    rooms: 5,
+    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80',
+  },
+  {
+    title: 'Apartamento en La Isla',
+    zone: 'Margarita',
+    price: 195000,
+    area: 140,
+    rooms: 2,
+    image: 'https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=800&q=80',
+  },
+  {
+    title: 'Chalet de montaña',
+    zone: 'Mérida',
+    price: 340000,
+    area: 290,
+    rooms: 4,
+    image: 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&q=80',
+  },
+];
+---
+
+<section class="bg-cream">
+  <div class="max-w-7xl mx-auto px-6 py-24 md:py-32">
+    <div class="text-center mb-16 reveal">
+      <p class="text-sm text-ink-muted tracking-widest uppercase mb-4">Portafolio</p>
+      <h2 class="font-display text-3xl md:text-5xl font-bold text-ink tracking-tight">
+        Propiedades destacadas
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {properties.map((prop) => (
+        <PropertyCard {...prop} />
+      ))}
+    </div>
+
+    <div class="text-center mt-12 reveal">
+      <a
+        href="/propiedades"
+        class="inline-flex items-center gap-2 text-forest font-medium transition-colors duration-120 hover:text-forest/80"
+      >
+        Ver todas las propiedades
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

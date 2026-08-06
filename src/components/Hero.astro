@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+
 const zones = ["Caracas", "Valencia", "Margarita", "Mérida", "Lechería"];
 const types = ["Casa", "Apartamento", "Penthouse", "Terreno"];
 ---
@@ -20,21 +21,25 @@ const types = ["Casa", "Apartamento", "Penthouse", "Terreno"];
         </div>
     </div>
 
-    <div class="relative z-10 max-w-7xl mx-auto px-6 pb-20 w-full pt-24">
+    <div
+        class="relative z-10 max-w-7xl mx-auto px-6 pb-20 w-full pt-24 text-center md:text-left"
+    >
         <h1
-            class="hero-headline font-display text-5xl md:text-7xl lg:text-8xl font-bold text-cream tracking-tight leading-[0.95] min-w-0 opacity-0 translate-y-5"
+            class="hero-headline font-display text-4xl md:text-7xl lg:text-8xl font-bold text-cream tracking-tight leading-[0.95] min-w-0 opacity-0 translate-y-5"
             style="overflow-wrap: anywhere;"
         >
             Tu hogar, conectado<br />
             a lo que <em class="font-normal italic">importa</em>.
         </h1>
 
-        <p class="mt-10 text-cream/80 text-lg max-w-xl">
+        <p
+            class="mt-10 text-cream/80 text-base md:text-lg max-w-xl mx-auto md:mx-0"
+        >
             Propiedades seleccionadas en las mejores zonas de Venezuela.
         </p>
 
         <div
-            class="mt-10 bg-surface rounded-xl p-3 flex flex-col md:flex-row gap-3 max-w-3xl shadow-lg min-w-0"
+            class="mt-10 bg-surface rounded-xl p-3 flex flex-col md:flex-row gap-3 max-w-3xl shadow-lg min-w-0 mx-auto md:mx-0"
         >
             <select
                 class="flex-1 bg-cream border border-ink/15 rounded-lg px-4 py-3 text-sm text-ink transition-all duration-150 hover:border-ink/30 focus-visible:border-forest focus-visible:ring-2 focus-visible:ring-forest/20 outline-none min-w-0"
@@ -68,7 +73,7 @@ const types = ["Casa", "Apartamento", "Penthouse", "Terreno"];
 
 <style>
     .hero-headline {
-        animation: hero-enter var(--motion-slower) var(--ease-emphasized)
+        animation: hero-enter var(--motion-slower) var(--ease-emphasized) 0.1s
             forwards;
     }
 
