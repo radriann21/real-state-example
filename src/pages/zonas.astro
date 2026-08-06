@@ -1,0 +1,116 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import { Image } from "astro:assets";
+
+const zones = [
+  {
+    name: "Caracas",
+    description: "La capital y centro financiero del país. Urbanizaciones consolidadas como Altamira, La Castellana y El Hatillo ofrecen estilo de vida urbano con servicios de primer nivel.",
+    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+    properties: 4,
+    priceRange: "$350.000 – $720.000",
+  },
+  {
+    name: "Lechería",
+    description: "Ciudad costera del estado Anzoátegui, reconocida por su calidad de vida, gastronomía y playas. Ideal para familias que buscan tranquilidad cerca del mar.",
+    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80",
+    properties: 2,
+    priceRange: "$200.000 – $350.000",
+  },
+  {
+    name: "Valencia",
+    description: "Segunda ciudad más grande de Venezuela. Centro industrial y comercial con una oferta inmobiliaria diversa, desde casas coloniales hasta urbanizaciones modernas.",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+    properties: 1,
+    priceRange: "$300.000 – $500.000",
+  },
+  {
+    name: "Margarita",
+    description: "Isla del Caribe venezolano, zona libre de impuestos. Atractiva para inversión vacacional y retiro, con playas turísticas y clima tropical todo el año.",
+    image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&q=80",
+    properties: 2,
+    priceRange: "$120.000 – $250.000",
+  },
+  {
+    name: "Mérida",
+    description: "Ciudad universitaria en los Andes venezolanos. Clima fresco, paisajes de montaña y una comunidad cultural activa. Perfecta para quienes buscan un ritmo de vida pausado.",
+    image: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&q=80",
+    properties: 1,
+    priceRange: "$280.000 – $400.000",
+  },
+];
+---
+
+<Layout>
+  <Nav />
+  <main>
+    <section class="bg-cream pt-32 pb-16">
+      <div class="max-w-7xl mx-auto px-6">
+        <p class="text-sm text-ink-muted tracking-widest uppercase mb-4 reveal">Cobertura</p>
+        <h1 class="font-display text-4xl md:text-6xl font-bold text-ink tracking-tight mb-6 reveal">
+          Zonas que cubrimos
+        </h1>
+        <p class="text-ink-muted text-xl max-w-2xl reveal">
+          Propiedades seleccionadas en las 5 zonas de mayor demanda de Venezuela.
+        </p>
+      </div>
+    </section>
+
+    <section class="bg-cream pb-24">
+      <div class="max-w-7xl mx-auto px-6 space-y-12">
+        {zones.map((zone, i) => (
+          <article
+            class={`flex flex-col ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-8 md:gap-16 items-center reveal`}
+          >
+            <div class="flex-1 min-w-0">
+              <div class="aspect-[16/10] rounded-2xl overflow-hidden bg-sand">
+                <Image
+                  src={zone.image}
+                  alt={zone.name}
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                  width="800"
+                  height="500"
+                />
+              </div>
+            </div>
+
+            <div class="flex-1 min-w-0">
+              <h2 class="font-display text-3xl md:text-4xl font-bold text-ink tracking-tight mb-4">
+                {zone.name}
+              </h2>
+              <p class="text-ink-muted text-lg leading-relaxed mb-6">
+                {zone.description}
+              </p>
+
+              <div class="flex items-center gap-6 pt-4 border-t border-ink/5">
+                <div>
+                  <p class="text-xs text-ink-muted uppercase tracking-wide">Propiedades</p>
+                  <p class="font-mono text-xl font-bold text-ink tabular-nums">{zone.properties}</p>
+                </div>
+                <div class="w-px h-10 bg-ink/10" />
+                <div>
+                  <p class="text-xs text-ink-muted uppercase tracking-wide">Rango de precios</p>
+                  <p class="font-mono text-xl font-bold text-forest tabular-nums">{zone.priceRange}</p>
+                </div>
+              </div>
+
+              <a
+                href={`/propiedades?zona=${zone.name.toLowerCase()}`}
+                class="inline-flex items-center gap-2 mt-6 text-forest font-medium text-sm transition-colors duration-120 hover:text-forest/80"
+              >
+                Ver propiedades en {zone.name}
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

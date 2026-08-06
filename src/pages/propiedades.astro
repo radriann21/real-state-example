@@ -1,0 +1,167 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import PropertyCard from "../components/PropertyCard.astro";
+import Footer from "../components/Footer.astro";
+
+const zones = ["Todas", "Caracas", "Valencia", "Margarita", "Mérida", "Lechería"];
+const types = ["Todos", "Casa", "Apartamento", "Penthouse", "Terreno"];
+
+const properties = [
+  {
+    title: "Casa moderna en Altamira",
+    zone: "Caracas",
+    price: 485000,
+    area: 320,
+    rooms: 4,
+    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+  },
+  {
+    title: "Apartamento con vista al mar",
+    zone: "Lechería",
+    price: 295000,
+    area: 180,
+    rooms: 3,
+    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
+  },
+  {
+    title: "Penthouse en Sambil",
+    zone: "Caracas",
+    price: 720000,
+    area: 260,
+    rooms: 3,
+    image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80",
+  },
+  {
+    title: "Casa colonial restaurada",
+    zone: "Valencia",
+    price: 380000,
+    area: 410,
+    rooms: 5,
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+  },
+  {
+    title: "Apartamento en La Isla",
+    zone: "Margarita",
+    price: 195000,
+    area: 140,
+    rooms: 2,
+    image: "https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=800&q=80",
+  },
+  {
+    title: "Chalet de montaña",
+    zone: "Mérida",
+    price: 340000,
+    area: 290,
+    rooms: 4,
+    image: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&q=80",
+  },
+  {
+    title: "Casa en La Castellana",
+    zone: "Caracas",
+    price: 650000,
+    area: 380,
+    rooms: 5,
+    image: "https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=800&q=80",
+  },
+  {
+    title: "Apartamento en El Morro",
+    zone: "Lechería",
+    price: 225000,
+    area: 150,
+    rooms: 2,
+    image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80",
+  },
+  {
+    title: "Terreno en Playa El Agua",
+    zone: "Margarita",
+    price: 120000,
+    area: 500,
+    rooms: 0,
+    image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&q=80",
+  },
+];
+---
+
+<Layout>
+  <Nav />
+  <main>
+    <section class="bg-cream pt-32 pb-16">
+      <div class="max-w-7xl mx-auto px-6">
+        <p class="text-sm text-ink-muted tracking-widest uppercase mb-4 reveal">Portafolio</p>
+        <h1 class="font-display text-4xl md:text-6xl font-bold text-ink tracking-tight mb-6 reveal">
+          Todas las propiedades
+        </h1>
+        <p class="text-ink-muted text-xl max-w-2xl reveal">
+          {properties.length} propiedades disponibles en las mejores zonas de Venezuela.
+        </p>
+      </div>
+    </section>
+
+    <section class="bg-cream pb-24">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row gap-4 mb-12 reveal">
+          <div class="flex-1 min-w-0">
+            <select
+              class="w-full bg-surface border border-ink/15 rounded-lg px-4 py-3 text-sm text-ink transition-all duration-150 hover:border-ink/30 focus-visible:border-forest focus-visible:ring-2 focus-visible:ring-forest/20 outline-none"
+            >
+              <option value="">Todas las zonas</option>
+              {zones.filter(z => z !== "Todas").map((z) => (
+                <option value={z}>{z}</option>
+              ))}
+            </select>
+          </div>
+
+          <div class="flex-1 min-w-0">
+            <select
+              class="w-full bg-surface border border-ink/15 rounded-lg px-4 py-3 text-sm text-ink transition-all duration-150 hover:border-ink/30 focus-visible:border-forest focus-visible:ring-2 focus-visible:ring-forest/20 outline-none"
+            >
+              <option value="">Todos los tipos</option>
+              {types.filter(t => t !== "Todos").map((t) => (
+                <option value={t}>{t}</option>
+              ))}
+            </select>
+          </div>
+
+          <div class="flex-1 min-w-0">
+            <input
+              type="text"
+              placeholder="Presupuesto máximo en USD"
+              class="w-full bg-surface border border-ink/15 rounded-lg px-4 py-3 text-sm text-ink placeholder:text-ink-muted transition-all duration-150 hover:border-ink/30 focus-visible:border-forest focus-visible:ring-2 focus-visible:ring-forest/20 outline-none"
+            />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {properties.map((prop) => (
+            <PropertyCard {...prop} />
+          ))}
+        </div>
+
+        <div class="mt-16 text-center reveal">
+          <p class="text-ink-muted text-sm">
+            Mostrando {properties.length} de {properties.length} propiedades
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-forest">
+      <div class="max-w-4xl mx-auto px-6 py-24 md:py-32 text-center">
+        <h2 class="font-display text-3xl md:text-5xl font-bold text-cream tracking-tight mb-6 reveal">
+          ¿No encuentras lo que buscas?
+        </h2>
+        <p class="text-cream/80 text-xl mb-10 reveal">
+          Cuéntanos qué propiedad ideal tienes en mente y te ayudamos a encontrarla.
+        </p>
+        <a
+          href="/contacto"
+          class="inline-block bg-terracotta text-cream px-8 py-4 rounded-lg font-medium transition-all duration-150 hover:bg-terracotta/90 hover:-translate-y-px active:translate-y-0 reveal"
+        >
+          Solicitar búsqueda personalizada
+        </a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

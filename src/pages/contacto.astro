@@ -1,0 +1,131 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout>
+  <Nav />
+  <main>
+    <section class="bg-cream pt-32 pb-16">
+      <div class="max-w-3xl mx-auto px-6 text-center">
+        <p class="text-sm text-ink-muted tracking-widest uppercase mb-4 reveal">Contacto</p>
+        <h1 class="font-display text-4xl md:text-6xl font-bold text-ink tracking-tight mb-6 reveal">
+          Hablemos de tu próximo hogar
+        </h1>
+        <p class="text-ink-muted text-xl leading-relaxed reveal">
+          Agenda una consulta gratuita o escríbenos. Te respondemos en menos de 24 horas.
+        </p>
+      </div>
+    </section>
+
+    <section class="bg-cream pb-24">
+      <div class="max-w-4xl mx-auto px-6">
+        <form class="space-y-6 reveal">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm font-medium text-ink mb-2" for="nombre">
+                Nombre completo
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                required
+                class="w-full bg-surface border border-ink/15 rounded-lg px-4 py-3 text-ink transition-all duration-150 hover:border-ink/30 focus-visible:border-forest focus-visible:ring-2 focus-visible:ring-forest/20 outline-none"
+              />
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-ink mb-2" for="email">
+                Correo electrónico
+              </label>
+              <input
+                type="email"
+                id="email"
+                required
+                class="w-full bg-surface border border-ink/15 rounded-lg px-4 py-3 text-ink transition-all duration-150 hover:border-ink/30 focus-visible:border-forest focus-visible:ring-2 focus-visible:ring-forest/20 outline-none"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-ink mb-2" for="telefono">
+              Teléfono (opcional)
+            </label>
+            <input
+              type="tel"
+              id="telefono"
+              class="w-full bg-surface border border-ink/15 rounded-lg px-4 py-3 text-ink transition-all duration-150 hover:border-ink/30 focus-visible:border-forest focus-visible:ring-2 focus-visible:ring-forest/20 outline-none"
+            />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-ink mb-2" for="zona">
+              Zona de interés
+            </label>
+            <select
+              id="zona"
+              class="w-full bg-surface border border-ink/15 rounded-lg px-4 py-3 text-ink transition-all duration-150 hover:border-ink/30 focus-visible:border-forest focus-visible:ring-2 focus-visible:ring-forest/20 outline-none"
+            >
+              <option value="">Selecciona una zona</option>
+              <option value="caracas">Caracas</option>
+              <option value="valencia">Valencia</option>
+              <option value="lecheria">Lechería</option>
+              <option value="margarita">Margarita</option>
+              <option value="merida">Mérida</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-ink mb-2" for="mensaje">
+              Cuéntanos qué buscas
+            </label>
+            <textarea
+              id="mensaje"
+              rows="5"
+              required
+              placeholder="Tipo de propiedad, presupuesto, número de habitaciones..."
+              class="w-full bg-surface border border-ink/15 rounded-lg px-4 py-3 text-ink placeholder:text-ink-muted transition-all duration-150 hover:border-ink/30 focus-visible:border-forest focus-visible:ring-2 focus-visible:ring-forest/20 outline-none resize-y"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full bg-forest text-cream px-8 py-4 rounded-lg font-medium transition-all duration-150 hover:bg-forest/90 hover:-translate-y-px active:translate-y-0 focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 focus-visible:ring-offset-cream cursor-pointer"
+          >
+            Enviar mensaje
+          </button>
+        </form>
+
+        <div class="mt-16 pt-16 border-t border-ink/10">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal">
+            <div>
+              <h3 class="font-bold text-ink mb-2">Oficina principal</h3>
+              <p class="text-ink-muted text-sm leading-relaxed">
+                Av. Francisco de Miranda, Torre Europa, Piso 12<br />
+                Chacao, Caracas 1060
+              </p>
+            </div>
+
+            <div>
+              <h3 class="font-bold text-ink mb-2">Contacto directo</h3>
+              <p class="text-ink-muted text-sm leading-relaxed">
+                <a href="tel:+582125551234" class="block hover:text-forest transition-colors">+58 212 555 1234</a>
+                <a href="mailto:hola@terranativa.ve" class="block hover:text-forest transition-colors">hola@terranativa.ve</a>
+              </p>
+            </div>
+
+            <div>
+              <h3 class="font-bold text-ink mb-2">Horario de atención</h3>
+              <p class="text-ink-muted text-sm leading-relaxed">
+                Lunes a Viernes: 9:00 – 18:00<br />
+                Sábados: 10:00 – 14:00
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
