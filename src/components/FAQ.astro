@@ -1,0 +1,66 @@
+---
+const faqs = [
+  {
+    question: '¿Cómo inicio el proceso de compra?',
+    answer: 'Agenda una consulta gratuita. Conversamos sobre tu presupuesto, zona preferida y tipo de propiedad. Te mostramos opciones que realmente encajen con lo que buscas.',
+  },
+  {
+    question: '¿Los precios están en dólares o bolívares?',
+    answer: 'Todas nuestras propiedades se cotizan en USD, que es el estándar del mercado inmobiliario venezolano. Aceptamos transferencias internacionales y pagos en bolívares a tasa BCV.',
+  },
+  {
+    question: '¿Incluyen asesoría legal?',
+    answer: 'Sí. Nuestro equipo legal revisa todos los documentos, verifica la titularidad y te acompaña en la firma notarial. El costo está incluido en nuestro servicio.',
+  },
+  {
+    question: '¿Puedo ver propiedades antes de decidir?',
+    answer: 'Por supuesto. Coordinamos visitas presenciales o virtuales según tu disponibilidad. No hay compromiso hasta que estés completamente seguro.',
+  },
+  {
+    question: '¿Cuánto tiempo toma el proceso completo?',
+    answer: 'Desde la primera consulta hasta la entrega de llaves, el proceso promedio es de 4-8 semanas. Depende de la propiedad y la velocidad de los trámites notariales.',
+  },
+  {
+    question: '¿Trabajan con propiedades en toda Venezuela?',
+    answer: 'Nos enfocamos en las zonas de mayor demanda: Caracas, Valencia, Lechería, Margarita y Mérida. Si buscas en otra zona, te conectamos con aliados de confianza.',
+  },
+];
+---
+
+<section class="bg-cream">
+  <div class="max-w-3xl mx-auto px-6 py-24 md:py-32">
+    <div class="text-center mb-16 reveal">
+      <p class="text-sm text-ink-muted tracking-widest uppercase mb-4">Preguntas frecuentes</p>
+      <h2 class="font-display text-3xl md:text-5xl font-bold text-ink tracking-tight">
+        Resolvemos tus dudas
+      </h2>
+    </div>
+
+    <div class="space-y-4 reveal">
+      {faqs.map((faq, i) => (
+        <details
+          class="group bg-surface rounded-xl border border-ink/5 open:bg-sand transition-colors duration-200"
+        >
+          <summary class="flex items-center justify-between px-6 py-5 cursor-pointer list-none">
+            <span class="font-medium text-ink text-base pr-8">{faq.question}</span>
+            <svg
+              class="w-5 h-5 text-ink-muted flex-shrink-0 transition-transform duration-200 group-open:rotate-180"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </summary>
+          <div class="grid grid-rows-[0fr] transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-open:grid-rows-[1fr]">
+            <div class="overflow-hidden">
+              <div class="px-6 pb-5">
+                <p class="text-ink-muted text-base leading-relaxed">{faq.answer}</p>
+              </div>
+            </div>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

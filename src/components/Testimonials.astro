@@ -1,0 +1,59 @@
+---
+const testimonials = [
+  {
+    name: 'Carolina Méndez',
+    zone: 'Caracas · Altamira',
+    property: 'Casa de 4 habitaciones',
+    quote: 'El proceso fue increíblemente claro. Desde la primera visita hasta la firma, siempre tuvimos asesoría. Encontramos el hogar perfecto para nuestra familia.',
+    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80',
+  },
+  {
+    name: 'Roberto Salazar',
+    zone: 'Lechería · El Morro',
+    property: 'Apartamento frente al mar',
+    quote: 'Llevaba meses buscando sin éxito. TerraNativa entendió exactamente lo que necesitaba y en dos semanas teníamos las llaves. Profesionales de verdad.',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80',
+  },
+  {
+    name: 'Ana Rodríguez',
+    zone: 'Valencia · El Parral',
+    property: 'Casa colonial restaurada',
+    quote: 'Lo que más valoro es la honestidad. Me mostraron solo propiedades que realmente encajaban con mi presupuesto. Sin sorpresas, sin costos ocultos.',
+    image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80',
+  },
+];
+---
+
+<section class="bg-sand">
+  <div class="max-w-7xl mx-auto px-6 py-24 md:py-32">
+    <div class="text-center mb-16 reveal">
+      <p class="text-sm text-ink-muted tracking-widest uppercase mb-4">Testimonios</p>
+      <h2 class="font-display text-3xl md:text-5xl font-bold text-ink tracking-tight">
+        Familias que ya encontraron su hogar
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {testimonials.map((t) => (
+        <article class="bg-surface rounded-2xl p-8 border border-ink/5 reveal">
+          <svg class="w-8 h-8 text-terracotta/30 mb-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+          </svg>
+
+          <p class="text-ink leading-relaxed mb-8">{t.quote}</p>
+
+          <div class="flex items-center gap-4 pt-6 border-t border-ink/5">
+            <div class="w-12 h-12 rounded-full overflow-hidden bg-sand flex-shrink-0">
+              <img src={t.image} alt={t.name} class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div>
+              <p class="font-medium text-ink text-sm">{t.name}</p>
+              <p class="text-ink-muted text-xs">{t.zone}</p>
+              <p class="text-forest text-xs font-medium mt-0.5">{t.property}</p>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
